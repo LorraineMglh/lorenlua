@@ -12,15 +12,15 @@
 </head>
 
 <body>
-    <div style = "width:1000px; margin: 0 auto;"> 
-        <div style = "width: 100%; min-height: 100px; background-color: red;">
+    <div style="width:1000px; margin: 0 auto;"> 
+        <div style="width: 100%; min-height: 100px; background-color: red; font-size: 20px;">
             <?php echo 'Olá, '.$_SESSION['nome'].'!';?>
-            <a href= "sair.php" style = "float: right">SAIR</a>
+            <a href="sair.php" style="float: right">SAIR</a>
         </div>
-        <div style = "width: 100px; background-color: blue; min-height: 400px; float: left">
+        <div style="width: 100px; background-color: blue; min-height: 400px; float: left">
             MENU
         </div>
-        <div style = "width: 900px; background-color: lime; min-height: 400px; float: left">
+        <div style="width: 900px; background-color: lime; min-height: 400px; float: left">
             CONTEÚDO
         </div>
     </div>
