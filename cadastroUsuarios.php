@@ -30,6 +30,25 @@
 
                 <input type="submit">
             </form>
+            <br><br><hr>
+            <?php
+                include("conexao.php");
+                $sql = "select nome, cpf, senha from usuarios";
+                if(!$resultado = $conn->query($sql)){
+                    die("Erro!");
+                }
+                ?>
+            <table>
+                <tr>
+                    <td>NOME</td>
+                    <td>CPF</td>
+                    <td>SENHA</td>
+                    <td>ALTERAR</td>
+                    <td>EXCLUIR</td>
+                </tr>
+
+                
+            </table>
         </div>
     </div>
 </body>
