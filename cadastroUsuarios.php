@@ -47,7 +47,26 @@
                     <td>EXCLUIR</td>
                 </tr>
 
-                
+                <?php
+                    while ($row = $resultado->fetch_assoc()) {
+                    ?>
+                    <tr>
+                        <form method="post" action="alterarUsuario.php">
+                            <input type="hidden" name="cpfAnterior" value="<?=$row['cpf'];?>">
+                            <td><input type="text" name="nome" value="<?=$row['name'];?>"></td>
+                            <td><input type="text" name="cpf" value="<?=$row['cpf'];?>"></td>
+                            <td><input type="text" name="senha" value="<?=$row['senha'];?>"></td>
+                            <td><input type="submit" value="alterar"></td>
+                        </form>
+
+                        <form method="post" action="apagarUsuario.php">
+                            <input type="hidden" name="cpf" value="<?=$row['cpf'];?>">
+                            <td><input type="submit" value="apagar"></td>
+                        </form>
+                    </tr>
+                    <?php
+                }
+                ?>     
             </table>
         </div>
     </div>
