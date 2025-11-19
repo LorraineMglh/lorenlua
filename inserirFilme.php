@@ -18,4 +18,6 @@ if ($query) {
     } else {
         echo "Erro ao inserir usuário!";
     }
+
+    $query->close();
 }
