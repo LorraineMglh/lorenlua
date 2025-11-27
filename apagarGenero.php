@@ -3,9 +3,9 @@
 include("conexao.php");
 include("valida.php");
 
-$nome = $_POST["nome"];
+$genero = $_POST["genero"];
 
-$sql = "delete from filmes where nome = ?";
+$sql = "delete from generos where genero = ?";
 
 $query = $conn->prepare($sql);
 

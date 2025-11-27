@@ -2,11 +2,17 @@
 
 include("conexao.php");
 include("valida.php");
+include("validarUsuario.php");
 
 $cpf = $_POST["cpf"];
 $nome = $_POST["usuario"];
 $senha = $_POST["senha"];
 $cpfAnterior = $_POST["cpfAnterior"];
+
+if (!validarNome($cpf) || !validarCPF($cpf) || !validarSenha($senha))
+{
+    echo 'Nome, CPF ou senha inválidos!';
+}
 
 $sql = "update usuarios set cpf = ?, senha = ?, nome = ? where cpf = ?";
 

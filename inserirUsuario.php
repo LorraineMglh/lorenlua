@@ -2,10 +2,16 @@
 
 include("conexao.php");
 include("valida.php");
+include("validarUsuario.php");
 
 $cpf = $_POST["cpf"];
 $nome = $_POST["usuario"];
 $senha = $_POST["senha"];
+
+if (!validarNome($cpf) || !validarCPF($cpf) || !validarSenha($senha))
+{
+    echo 'Nome, CPF ou senha inválidos!';
+}
 
 $sql = "insert into usuarios (cpf, nome, senha) values (?, ?, ?)";
 

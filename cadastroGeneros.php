@@ -24,18 +24,19 @@
             <p><a href="cadastroGeneros.php" style="color: inherit">Cadastrar gêneros</a></p>
         </div>
         <div style="width: 900px; background-color: lime; min-height: 400px; float: left">
-            <form method="POST" action="inserirUsuario.php">
-                CPF: <input type="text" name="cpf">
-                USUARIO: <input type="text" name="usuario">
-                SENHA: <input type="text" name="senha">
+            <form method="post" action="inserirGenero.php">
+                ID: <input type="text" name="genero"><br>
+                DESCRICAO: <input type="text" name="descricao"><br>
 
-                <input type="submit">
+                <input type="submit" value="inserir">
             </form>
             <br><br><hr>
 
             <?php
                 include("conexao.php");
-                $sql = "select nome, cpf, senha from usuarios";
+
+                $sql = "select genero, descricao from filmes";
+
                 if(!$resultado = $conn->query($sql)){
                     die("Erro!");
                 }
@@ -43,9 +44,8 @@
 
             <table>
                 <tr>
-                    <td>NOME</td>
-                    <td>CPF</td>
-                    <td>SENHA</td>
+                    <td>ID</td>
+                    <td>DESCRICAO</td>
                     <td>ALTERAR</td>
                     <td>EXCLUIR</td>
                 </tr>
@@ -54,16 +54,15 @@
                     while ($row = $resultado->fetch_assoc()) {
                     ?>
                     <tr>
-                        <form method="post" action="alterarUsuario.php">
-                            <input type="hidden" name="cpfAnterior" value="<?=$row['cpf'];?>">
-                            <td><input type="text" name="nome" value="<?=$row['nome'];?>"></td>
-                            <td><input type="text" name="cpf" value="<?=$row['cpf'];?>"></td>
-                            <td><input type="text" name="senha" value="<?=$row['senha'];?>"></td>
+                        <form method="post" action="alterarGenero.php">
+                            <input type="hidden" name="generoAnterior" value="<?=$row['generoAnterior'];?>">
+                            <td><input type="text" name="genero" value="<?=$row['genero'];?>"></td>
+                            <td><input type="text" name="descricao" value="<?=$row['descricao'];?>"></td>
                             <td><input type="submit" value="alterar"></td>
                         </form>
 
-                        <form method="post" action="apagarUsuario.php">
-                            <input type="hidden" name="cpf" value="<?=$row['cpf'];?>">
+                        <form method="post" action="apagarGenero.php">
+                            <input type="hidden" name="genero" value="<?=$row['genero'];?>">
                             <td><input type="submit" value="apagar"></td>
                         </form>
                     </tr>
